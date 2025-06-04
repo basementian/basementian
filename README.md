@@ -5,30 +5,6 @@
 I'm a founder, full-stack builder, and infrastructure hoarder.  
 Everything I create is scrappy, synergistic, and designed to outlast the hype.
 
-## Inventory Demo (Dexie + Tailwind)
-This repository houses an offline-first inventory demo powered by [Dexie](https://dexie.org/) and styled with [Tailwind CSS](https://tailwindcss.com/).
-
-### Setup
-After cloning, install dependencies:
-```bash
-npm install
-```
-This pulls Dexie, Tailwind, and all other packages.
-
-### Development
-Start the dev server with:
-```bash
-npm run dev
-```
-
-### Build
-Create a production bundle using:
-```bash
-npm run build
-```
-
-
----
 
 ### 🧱 Current Stack
 
