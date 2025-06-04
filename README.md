@@ -1,10 +1,12 @@
-- 👋 Hi, I’m @basementian
-- 👀 I’m interested in learning
-- 🌱 I’m currently learning basic coding
-- 💞️ I’m looking to collaborate on 
-- 📫 How to reach me ...
+# React + Vite
 
-<!---
-basementian/basementian is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+This project uses [Vite](https://vitejs.dev/) to scaffold a React application.
+
+## Development
+
+Install dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
+```
