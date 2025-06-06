@@ -1,38 +1,40 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { nanoid } from 'nanoid';
 
-export default function AddItemForm({ onAdd }) {
-  const [name, setName] = useState('')
-  const [quantity, setQuantity] = useState('')
-  const [category, setCategory] = useState('')
+function AddItemForm({ onAdd }) {
+  const [form, setForm] = useState({
+    code: '',
+    name: '',
+    quantity: '',
+    category: ''
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!name || !quantity) return
-    onAdd({ name, quantity: Number(quantity), category })
-    setName('')
-    setQuantity('')
-    setCategory('')
-  }
+    e.preventDefault();
+    if (!form.code || !form.name) return;
+
+    onAdd({
+      id: nanoid(),
+      ...form,
+      quantity: parseInt(form.quantity) || 0
+    });
+
+    setForm({ code: '', name: '', quantity: '', category: '' });
+  };
 
   return (
-    <form onSubmit={handleSubmit} className="add-item-form">
-      <input
-        placeholder="Item name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Qty"
-        value={quantity}
-        onChange={(e) => setQuantity(e.target.value)}
-      />
-      <input
-        placeholder="Category"
-        value={category}
-        onChange={(e) => setCategory(e.target.value)}
-      />
+    <form onSubmit={handleSubmit} style={{ marginBottom: '1rem' }}>
+      <input name="code" placeholder="Part Code" value={form.code} onChange={handleChange} required />
+      <input name="name" placeholder="Name" value={form.name} onChange={handleChange} required />
+      <input name="quantity" type="number" placeholder="Quantity" value={form.quantity} onChange={handleChange} />
+      <input name="category" placeholder="Category" value={form.category} onChange={handleChange} />
       <button type="submit">Add</button>
     </form>
-  )
+  );
 }
+
+export default AddItemForm;
